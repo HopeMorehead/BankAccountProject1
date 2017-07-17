@@ -8,21 +8,17 @@ namespace BankAccountProject1
 {
     class Account
     {
-        decimal currentBalance = 100.00M;
-        decimal currentCheckingBalance;
-        decimal currentSavingsBalance;
-
-
         //fields
-        private string name;
-        private int accountNumber;
-        private decimal checkings;
-        private decimal savings;
-        
+      
+        //Some access is nessassary for inheritance of tow different account numbers
+        protected long accountNumber;
+       // private decimal startcheckingsBalance;
+       // private decimal startsavingsBalance;
+
 
         //properties
         public string Name { get; }
-        public int AccountNumber { get; }
+        public long AccountNumber { get; }
         public decimal Checking { get; set; }
         public decimal Savings { get; set; }
 
@@ -36,23 +32,23 @@ namespace BankAccountProject1
 
 
         //custructor
-        public Account(string name, int accountNumber, decimal checkings, decimal savings)
+        public Account(/*string name,*/ long accountNumber /*decimal startcheckingsBalance, decimal startSavingsBalance*/)
         {
-            this.name = name;
+           // this.name = name;
             this.accountNumber = accountNumber;
-            this.checkings = checkings;
-            this.savings = savings;
+         //   this.startcheckingsBalance = startcheckingsBalance;
+          //  this.startsavingsBalance = startSavingsBalance;
         }
 
 
 
         //methods                      //temporary variables decimals
-        public  decimal deposit(decimal currentBalance,decimal depositAmount)
+        public decimal deposit(decimal currentBalance, decimal depositAmount)
         {
             Console.WriteLine("How much would you like to deposit.");
-           depositAmount = decimal.Parse(Console.ReadLine());
-           decimal depositBalance = currentBalance + depositAmount;
-           return depositBalance;
+            depositAmount = decimal.Parse(Console.ReadLine());
+            decimal depositBalance = currentBalance + depositAmount;
+            return depositBalance;
         }
 
 
@@ -61,32 +57,30 @@ namespace BankAccountProject1
 
 
         //temporary variables decimals
+
        
-        public decimal Withdrawal(decimal currentBalance,decimal withdrawalAmount)
+        public decimal Withdrawal(decimal currentBalance, decimal withdrawalAmount)
         {
-            Console.WriteLine("How much would you like to Withdrawal.");
-            withdrawalAmount = decimal.Parse(Console.ReadLine());
-            if (currentBalance <= 0.00M)
-            {
-                Console.WriteLine("Insufficient funds");              
-            }
-            decimal withdrawalBalance = currentBalance - withdrawalAmount;
-            return withdrawalBalance;
 
-
-
+           // do
+           // {
+                Console.WriteLine("How much would you like to Withdrawal.");
+                withdrawalAmount = decimal.Parse(Console.ReadLine());
+                decimal withdrawalBalance = currentBalance - withdrawalAmount;
+                return withdrawalBalance;
+          //  } while (currentBalance >= 100.00M);
         }
 
 
 
 
-        public  decimal ViewCurrentBalance(decimal currentBalance)
+        public virtual decimal ViewCurrentBalance(decimal currentBalance)
         {
-           // currentCheckingBalance = currentBalance;
+           // currentBalance = currentBalance; ;
             return currentBalance;
         }
 
-
+ 
 
 
 

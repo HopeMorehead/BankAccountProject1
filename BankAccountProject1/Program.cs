@@ -21,21 +21,52 @@ namespace BankAccountProject1
             //can't seem to call return statement.Had to use a writeline
             Account alex = new Account();
             decimal depositBalance = alex.deposit(currentBalance, depositAmount);
+            //  decimal due = depositAmount;
             Console.WriteLine(depositBalance);
 
 
 
-           decimal withdrawalBalance = alex.Withdrawal(depositBalance, withdrawalAmount);
-            Console.WriteLine(withdrawalBalance);
+
+            //withdrawal
+            decimal withdrawalBalance = alex.Withdrawal(depositBalance, withdrawalAmount);
+            if (withdrawalBalance <= 0.00M)
+            {
+                Console.WriteLine("Insufficient funds");
+            }
+            else
+            {
+                Console.WriteLine(withdrawalBalance);
+            }
+
+
+            //current balance
+            decimal ViewCurrentBalance = alex.ViewCurrentBalance(currentBalance);
+            Console.WriteLine(currentBalance);
 
 
 
-        }
+          //  Account Number
+            Checking lauren = new Checking(/*1000.00M*/);
+            Console.WriteLine(lauren.AccountNumber);
 
 
 
 
+            //current balance
+            decimal checkingAccountBalance = lauren.ViewCurrentBalance(currentBalance);
+           // Checking Account balance
+            Console.WriteLine(checkingAccountBalance);
+          // Console.WriteLine(lauren.ViewCurrentBalance());
+
+
+        }  
 
     }
 
 }
+
+
+
+    
+
+
