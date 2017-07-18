@@ -9,38 +9,32 @@ namespace BankAccountProject1
     class Savings : Account
     {
 
-
-        //I have access to base field
-        //Added new field for method overrice
-        //  private decimal checkingAccountBalance;
+        
+         public decimal savingsAccountBalance { get; set; }
 
 
-
-
-        public decimal savingsAccountBalance { get; set; }
-        // 1 constructor
-
-
-
-
-        public Savings(decimal savingsAccountBalance)
+        public long GetAccountNumber(long AccountNumber)
         {
-            this.savingsAccountBalance = 1000.00M;
-            base.accountNumber = 9281561117;
+            return AccountNumber;
+        }
+
+
+
+        public Savings(decimal savingsAccountBalance ,long accountNumber)
+        {
+            this.savingsAccountBalance = savingsAccountBalance;
+            this.accountNumber = accountNumber;
         }
 
 
 
 
 
-        //cannot add parameters even if it is an overridden method
-        public override decimal ViewCurrentBalance(decimal currentBalance)
+        public override decimal ViewCurrentBalance(decimal savingsAccountBalance)
         {
-           savingsAccountBalance = currentBalance;
 
-
-            //  return statement not retuning a value
-            return currentBalance;
+            CurrentBalance = savingsAccountBalance + CurrentBalance;
+            return CurrentBalance;
         }
 
 

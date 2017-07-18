@@ -7,67 +7,23 @@ using System.Threading.Tasks;
 namespace BankAccountProject1
 {
     class Checking : Account
-    {   
-
-
-         private decimal checkingAccountBalance = 500.00M;
-         private long accountNumber = 8562349610;
-
-        //I have access to base field
-        //Added new field for method overrice
-      //  private decimal checkingAccountBalance;
-
-
-
-        public decimal CheckingAccountBalance { get; set; }
-        public long AccountNumber
-        {
-            get
-            {
-                return this.accountNumber;
-
-            }
-        }
+    {
         
 
-        // 1 constructor
 
 
-
-        public Checking()
+        public long GetAccountNumber(long AccountNumber)
         {
-
+            return AccountNumber;
         }
-         public Checking(decimal checkingAccountBalance)
-        {
-
-
-          this.checkingAccountBalance =checkingAccountBalance;
-         // base.accountNumber = 8562349610;
-        }
-
-
-
 
 
         //cannot add parameters even if it is an overridden method
-        public override decimal ViewCurrentBalance(decimal currentBalance)
+        public override decimal ViewCurrentBalance(decimal checkingAccountBalance)
         {
-            checkingAccountBalance += currentBalance ;
- 
-
-           //  return statement not retuning a value
-            return checkingAccountBalance;
+            CurrentBalance += checkingAccountBalance + CurrentBalance;
+            return CurrentBalance;
         }
-
-
-
-
-
-
-
-
-
 
     }
 }

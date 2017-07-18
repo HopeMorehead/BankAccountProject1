@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 namespace BankAccountProject1
 {
      class Client : Account
-    {   //fiels
-        private string name;
-        private string address;
-        private int age;
+    {   //fields
+        protected string name = "Carlos Santana";
+        private string address = "1234 Main St.Cleveland OH 44125";
+        private int age = 65;
 
 
 
 
 
         //properties
-        public string Name { get; }
-        public string Address { get; set; }
-        public int Age { get; set; }
+        public string Name {get; }
+        public string Address {get; set; }
+        public int Age {get; set; }
 
 
 
@@ -30,16 +30,15 @@ namespace BankAccountProject1
 
         public Client( string name, string address, int age)
         {
-            this.name = "Carlos Santana" ;
-            this.address = "1234 Main St. Cleveland OH 44116" ;
-            this.age = 35;
+            this.name = name;
+            this.address = address ;
+            this.age = age; 
         }
 
 
         public void Information()
         {
-
-
+            Console.WriteLine($"Client name:{name}\nClient address:{address}\nClient age:{age}");
 
 
         }
